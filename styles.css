@@ -1,20 +1,22 @@
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
+/* Tabla periódica */
 #tabla-periodica {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; 
+    justify-content: center; /* Centra la tabla horizontalmente */
 }
+
 .elemento {
     width: 50px;
     height: 50px;
     text-align: center;
-    border: 1px solid rgb(255, 255, 255);
-    background-color: #34495e ;
+    border: 1px solid black;
     cursor: pointer;
     margin: 5px;
 }
@@ -29,20 +31,19 @@ body {
     width: 100%;
     height: 100%;
     overflow: auto;
-    border: 20px solid rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
-    background-color: #ffffff;
+    background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #ffffff;
-    width: 70%;
+    border: 1px solid #888;
+    width: 80%;
 }
 
 .close {
-    color: #ff0000;
+    color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -50,14 +51,7 @@ body {
 
 .close:hover,
 .close:focus {
-    color: rgb(255, 255, 255);
+    color: black;
     text-decoration: none;
     cursor: pointer;
 }
-/* Suponiendo que el texto a personalizar está dentro de un elemento <p> */
-.modal-content p {
-    font-size: 20px; /* Ajusta el tamaño de la fuente a tu gusto */
-    color: #ff0000; /* Cambia el color del texto */
-    font-family: Arial, sans-serif; /* Elige la familia de fuentes */
-    /* Puedes agregar más propiedades CSS aquí, como font-weight, line-height, etc. */
-  }
