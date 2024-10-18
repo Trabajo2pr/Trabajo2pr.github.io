@@ -17,6 +17,7 @@ body {
     height: 50px;
     text-align: center;
     border: 1px solid rgb(128, 135, 223);
+    background-color:beige;
     cursor: pointer;
     margin: 5px;
 }
@@ -56,3 +57,4 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
