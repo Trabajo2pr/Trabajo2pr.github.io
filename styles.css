@@ -59,4 +59,12 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
-
+/* Redondear todas las esquinas de un div en 5 píxeles */
+div {
+    border-radius: 10px;
+  }
+  
+  /* Redondear solo las esquinas superior izquierda e inferior derecha en 10% */
+  button {
+    border-radius: 5% 0 15% 0;
+  }
