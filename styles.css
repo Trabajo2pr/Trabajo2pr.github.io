@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -54,3 +55,10 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+/* Suponiendo que el texto a personalizar está dentro de un elemento <p> */
+.modal-content p {
+    font-size: 20px; /* Ajusta el tamaño de la fuente a tu gusto */
+    color: #333; /* Cambia el color del texto */
+    font-family: Arial, sans-serif; /* Elige la familia de fuentes */
+    /* Puedes agregar más propiedades CSS aquí, como font-weight, line-height, etc. */
+  }
