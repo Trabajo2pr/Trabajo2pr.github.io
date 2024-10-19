@@ -1,80 +1,106 @@
 body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-#tabla-periodica, #lantanidos-actinidos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.elemento {
-  width: 100%;
-  height: 100%;
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color:   
- #4CAF50; /* Ejemplo de color */
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,   
- 0, 0, 0.4);
-}
-
-.modal-contenido {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width:   
- 400px;
-}
-
-.cerrar {
-  color: #ee0000;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-#descargar-pdf {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: rgb(0, 0, 0);
-  border: none;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  /* Estilos para pantallas más pequeñas */
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
   #tabla-periodica, #lantanidos-actinidos {
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .elemento {
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:   
+   #4CAF50; /* Ejemplo de color */
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,   
+   0, 0, 0.4);
+  }
+  
+  .modal-contenido {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width:   
+   400px;
+  }
+  
+  .cerrar {
+    color: #ee0000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  #descargar-pdf {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    /* Estilos para pantallas más pequeñas */
+    #tabla-periodica, #lantanidos-actinidos {
+      grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    }
+    .elemento {
+      font-size: 12px;
+    }
   }
   .elemento {
-    font-size: 12px;
+    /* ... */
+    cursor: pointer;
+    /* Agrega un evento para abrir el modal (ejemplo con JavaScript) */
+    data-modal-id="modal1"; /* Asume que tienes un modal con id="modal1" */
   }
-}
+  
+  .modal-contenido {
+    /* ... */
+    position: absolute; /* Posiciona el modal de forma absoluta */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra el modal */
+  }
+  
+  #descargar-pdf {
+    /* ... */
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center; /* Centra el texto del botón */
+    margin: 20px auto; /* Centra el botón horizontalmente */
+  }
