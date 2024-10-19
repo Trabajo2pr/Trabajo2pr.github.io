@@ -1,32 +1,23 @@
-body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  zoom: 1; /* Evita el zoom del usuario */
-}
-
-#tabla-periodica, #lantanidos-actinidos {
+#tabla-periodica {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Ajusta el tamaño mínimo de las celdas */
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   gap: 10px;
-  margin-bottom: 20px;
   width: 100%; /* Asegúrate de que la tabla ocupe todo el ancho disponible */
 }
 
 .elemento {
-  /* ... otros estilos ... */
-  box-sizing: border-box; /* Incluye el padding y border en el ancho y alto */
+  /* Estilos para cada elemento */
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
-  /* Estilos para pantallas más pequeñas */
-  #tabla-periodica, #lantanidos-actinidos {
+  #tabla-periodica {
     grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
   }
   .elemento {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
   }
 }
