@@ -1,30 +1,32 @@
-/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-#elementos
-.grupo1 {
-    background-color: #000000;
-}
-/* Tabla periódica */
-#tabla-periodica {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Centra la tabla horizontalmente */
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#tabla-periodica, #lantanidos-actinidos {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    gap: 2px;
+    margin-bottom: 20px;
 }
 
 .elemento {
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    border: 1px solid rgb(0, 0, 0);
-    background-color:rgb(255, 255, 255);
+    width: 60px;
+    height: 60px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    border: none;
     cursor: pointer;
-    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-/* Ventana modal */
+
 .modal {
     display: none;
     position: fixed;
@@ -34,37 +36,31 @@ body {
     width: 100%;
     height: 100%;
     overflow: auto;
-    font-family: Arial, Helvetica, sans-serif; color: #000000;
     background-color: rgba(0,0,0,0.4);
 }
 
-.modal-content {
-    background-color: #ffffff;
+.modal-contenido {
+    background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #000000;
+    border: 1px solid #888;
     width: 80%;
+    max-width: 400px;
 }
 
-.close {
-    color: #ff0000;
+.cerrar {
+    color: #ee0000;
     float: right;
-    font-size: 40px;
+    font-size: 28px;
     font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
     cursor: pointer;
 }
-/* Redondear todas las esquinas de un div en 5 píxeles */
-div {
-    border-radius: 10px;
-  }
-  
-  /* Redondear solo las esquinas superior izquierda e inferior derecha en 10% */
-  button {
-    border-radius: 5% 0 15% 0;
-  }
+
+#descargar-pdf {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+}
