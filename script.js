@@ -1,7 +1,7 @@
 const elements = [
     { symbol: 'H', name: 'Hidrógeno', number: 1, mass: 1.008, group: 1, period: 1, family: 'no-metal', discovery: 1766 },
     { symbol: 'He', name: 'Helio', number: 2, mass: 4.003, group: 18, period: 1, family: 'gas-noble', discovery: 1895 },
-    // ... Agregar el resto de los elementos aquí, incluyendo lantánidos y actínidos con sus fechas de descubrimiento
+    // Agrega el resto de los elementos aquí
 ];
 
 function createPeriodicTable() {
@@ -51,3 +51,59 @@ function showElementDetails(element) {
     
     modal.style.display = 'block';
 }
+
+function getFamilyName(family) {
+    const families = {
+        'metal-alcalino': 'Metal alcalino',
+        'metal-alcalinoterreo': 'Metal alcalinotérreo',
+        'metal-de-transicion': 'Metal de transición',
+        'metal-del-bloque-p': 'Metal del bloque p',
+        'metaloide': 'Metaloide',
+        'no-metal': 'No metal',
+        'halogeno': 'Halógeno',
+        'gas-noble': 'Gas noble',
+        'lantanido': 'Lantánido',
+        'actinido': 'Actínido'
+    };
+    return families[family] || family;
+}
+
+function downloadPDF() {
+    const { jsPDF } = window.jspdf;
+    
+    html2canvas(document.querySelector('.container')).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF({
+            orientation: 'landscape',
+            unit: 'mm',
+            format: 'a4'
+        });
+        
+        const imgProps = pdf.getImageProperties(imgData);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save("tabla_periodica.pdf");
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    createPeriodicTable();
+    
+    const modal = document.getElementById('modal');
+    const closeBtn = document.querySelector('.close');
+    const downloadBtn = document.getElementById('downloadPdf');
+    
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    downloadBtn.addEventListener('click', downloadPDF);
+});
