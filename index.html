@@ -3,23 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabla Periódica Simplificada</title>
+    <title>Tabla Periódica Interactiva</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Tabla Periódica Simplificada</h1>
-    <div id="tabla-periodica"></div>
-    <div id="lantanidos-actinidos"></div>
-    <button id="descargar-pdf">Descargar PDF</button>
-    
-    <div id="modal" class="modal">
-        <div class="modal-contenido">
-            <span class="cerrar">&times;</span>
-            <h2 id="elemento-nombre"></h2>
-            <p id="elemento-info"></p>
+    <div class="container">
+        <h1>Tabla Periódica de los Elementos</h1>
+        <div class="periodic-table">
+            <!-- Los elementos se agregarán dinámicamente con JavaScript -->
         </div>
+        <button id="downloadPdf">Descargar PDF</button>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="script.js"></script>
 </body>
