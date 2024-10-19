@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Tabla Periódica Interactiva</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Periódica Simplificada</title>
     <link rel="stylesheet" href="styles.css">
-    <h1>Tabla periodica intercativa</h1>
-    <p1>Presiona en el simbolo que desees para saber la informacion del elemento</p1>
-    
-    <table><p>Nota: El negativo a lado de la fecha de los elementos significa Antes de Cristo</p>
-    </table>
 </head>
 <body>
-    <style>
-        body{
-            background-color: #c9c9c9;
-        }
-    </style>
+    <h1>Tabla Periódica Simplificada</h1>
     <div id="tabla-periodica"></div>
+    <div id="lantanidos-actinidos"></div>
+    <button id="descargar-pdf">Descargar PDF</button>
+    
     <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p id="modal-text"></p>
+        <div class="modal-contenido">
+            <span class="cerrar">&times;</span>
+            <h2 id="elemento-nombre"></h2>
+            <p id="elemento-info"></p>
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
