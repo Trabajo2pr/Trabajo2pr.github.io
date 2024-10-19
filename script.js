@@ -118,147 +118,54 @@ document.addEventListener('DOMContentLoaded', function() {
         { simbolo: 'Lv', nombre: 'Livermorio', numeroAtomico: 116, masaAtomica: 293, fechaDescubrimiento: '2000', grupo: 16, periodo: 7, familia: 'Otros metales' },
         { simbolo: 'Ts', nombre: 'Teneso', numeroAtomico: 117, masaAtomica: 294, fechaDescubrimiento: '2010', grupo: 17, periodo: 7, familia: 'Halógeno' },
         { simbolo: 'Og', nombre: 'Oganesón', numeroAtomico: 118, masaAtomica: 294, fechaDescubrimiento: '2006', grupo: 18, periodo: 7, familia: 'Gas noble' }
-    ];
-
-    const coloresFamilias = {
-        'Alcalino': '#ff6b6b',
-        'Alcalinotérreo': '#feca57',
-        'Metales de transición': '#48dbfb',
-        'Otros metales': '#ff9ff3',
-        'Metaloide': '#54a0ff',
-        'No metal': '#5f27cd',
-        'Halógeno': '#ff6b6b',
-        'Gas noble': '#ff9ff3',
-        'Lantánidos': '#1dd1a1',
-        'Actínidos': '#54a0ff'
-    };
-
-    const tablaPeriodica = document.getElementById('tabla-periodica');
-    const lantanidosActinidos = document.getElementById('lantanidos-actinidos');
-    const modal = document.getElementById('modal');
-    const cerrarModal = document.getElementsByClassName('cerrar')[0];
-    const elementoNombre = document.getElementById('elemento-nombre');
-    const elementoInfo = document.getElementById('elemento-info');
-    const descargarPDF = document.getElementById('descargar-pdf');
-
-    function posicionarElemento(elemento) {
-        if (elemento.familia === 'Lantánidos') {
-            return { fila: 1, columna: elemento.numeroAtomico - 54 };
-        } else if (elemento.familia === 'Actínidos') {
-            return { fila: 2, columna: elemento.numeroAtomico - 86 };
-        } else if (elemento.grupo === 3 && elemento.periodo >= 6) {
-            return { fila: elemento.periodo, columna: 3 };
-        } else {
-            return { fila: elemento.periodo, columna: elemento.grupo };
         }
-    }
 
-    elementos.forEach(elemento => {
-        const boton = document.createElement('button');
-        boton.textContent = elemento.simbolo;
-        boton.className = 'elemento';
-        const { fila, columna } = posicionarElemento(elemento);
-        boton.style.gridRow = fila;
-        boton.style.gridColumn = columna;
-        boton.style.backgroundColor = coloresFamilias[elemento.familia];
-        boton.addEventListener('click', () => mostrarElemento(elemento));
-
-        if (elemento.familia === 'Lantánidos' || elemento.familia === 'Actínidos') {
-            lantanidosActinidos.appendChild(boton);
-        } else {
-            tablaPeriodica.appendChild(boton);
-        }
-    });
-
-    function mostrarElemento(elemento) {
-        elementoNombre.textContent = elemento.nombre;
-        elementoInfo.innerHTML = `
-            Símbolo: ${elemento.simbolo}<br>
-            Número Atómico: ${elemento.numeroAtomico}<br>
-            Masa Atómica: ${elemento.masaAtomica}<br>
-            Fecha de Descubrimiento: ${elemento.fechaDescubrimiento}<br>
-            Familia: ${elemento.familia}
-        `;
-        modal.style.display = 'block';
-    }
-
-    cerrarModal.onclick = function() {
-        modal.style.display = 'none';
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    }
-
-    descargarPDF.addEventListener('click', generarPDFTablaCompleta);
-
-    function generarPDFTablaCompleta() {
-        const { jsPDF } = window.jspdf;
-
-        const doc = new jsPDF({
-            orientation: 'landscape',
-            unit: 'mm',
-            format: 'a3'
-        });
-
-        const pageWidth = doc.internal.pageSize.getWidth();
-        const pageHeight = doc.internal.pageSize.getHeight();
-        const margin = 10;
-        const cellWidth = (pageWidth - 2 * margin) / 18;
-        const cellHeight = (pageHeight - 2 * margin) / 10;
-
-        // Dibujar el fondo de la tabla
-        doc.setFillColor(208, 215, 222);
-        doc.rect(margin, margin, pageWidth - 2 * margin, pageHeight - 2 * margin, 'F');
-
-        // Título
-        doc.setFontSize(16);
-        doc.setTextColor(36, 41, 47);
-        doc.text("Tabla Periódica de los Elementos", pageWidth / 2, margin - 2, { align: 'center' });
-
-        elementos.forEach(elemento => {
-            const { fila, columna } = posicionarElemento(elemento);
-            let x, y;
-
-            if (elemento.familia === 'Lantánidos' || elemento.familia === 'Actínidos') {
-                x = margin + (columna - 1) * cellWidth;
-                y = margin + (7 + (elemento.familia === 'Lantánidos' ? 0 : 1)) * cellHeight;
-            } else {
-                x = margin + (columna - 1) * cellWidth;
-                y = margin + (fila - 1) * cellHeight;
+function createPeriodicTable() {
+    const table = document.querySelector('.periodic-table');
+    
+    for (let period = 1; period <= 7; period++) {
+        for (let group = 1; group <= 18; group++) {
+            const element = elements.find(e => e.group === group && e.period === period);
+            
+            if (element) {
+                const elementDiv = document.createElement('div');
+                elementDiv.className = 'elemento';
+                elementDiv.style.gridColumn = groupo;
+                elementDiv.style.gridRow = periodo;
+                elementDiv.innerHTML = `
+                    <span class="number">${element.number}</span>
+                    <span class="symbol">${element.symbol}</span>
+                `;
+                elementDiv.title = element.name;
+                table.appendChild(elementDiv);
             }
-
-            // Dibujar el fondo del elemento
-            const rgb = hexToRgb(coloresFamilias[elemento.familia]);
-            doc.setFillColor(rgb.r, rgb.g, rgb.b);
-            doc.roundedRect(x, y, cellWidth, cellHeight, 1, 1, 'F');
-
-            // Símbolo del elemento
-            doc.setFontSize(12);
-            doc.setTextColor(255, 255, 255);
-            doc.text(elemento.simbolo, x + cellWidth / 2, y + cellHeight / 2, { align: 'center', baseline: 'middle' });
-
-            // Número atómico
-            doc.setFontSize(6);
-            doc.text(elemento.numeroAtomico.toString(), x + 1, y + 3);
-
-            // Masa atómica
-            doc.setFontSize(4);
-            doc.text(elemento.masaAtomica.toString(), x + 1, y + cellHeight - 1);
-        });
-
-        doc.save('tabla_periodica.pdf');
+        }
     }
+}
 
-    // Función auxiliar para convertir colores hex a RGB
-    function hexToRgb(hex) {
-        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-        return result ? {
-            r: parseInt(result[1], 16),
-            g: parseInt(result[2], 16),
-            b: parseInt(result[3], 16)
-        } : null;
-    }
+function downloadPDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    
+    doc.text("Tabla Periódica de los Elementos", 105, 15, null, null, "center");
+    
+    const table = document.querySelector('.periodic-table');
+    const elements = table.querySelectorAll('.element');
+    
+    elements.forEach((element, index) => {
+        const x = 10 + (index % 18) * 10;
+        const y = 25 + Math.floor(index / 18) * 10;
+        
+        doc.setFontSize(6);
+        doc.text(element.querySelector('.number').textContent, x, y);
+        doc.setFontSize(8);
+        doc.text(element.querySelector('.symbol').textContent, x, y + 3);
+    });
+    
+    doc.save("tabla_periodica.pdf");
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    createPeriodicTable();
+    document.getElementById('downloadPdf').addEventListener('click', downloadPDF);
 });
