@@ -1,48 +1,79 @@
-/* Variables de colores y medidas */
-:root {
-  --primary-color: #4CAF50;
-  --secondary-color: #fefefe;
-  --border-color: #888;
-  --font-size: 16px;
-}
-
 body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
 #tabla-periodica, #lantanidos-actinidos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 1rem;
-  margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    gap: 2px;
+    margin-bottom: 20px;
 }
 
 .elemento {
-  /* ... */
-  cursor: pointer;
-  /* Agrega un evento para abrir el modal (ejemplo con JavaScript) */
-  data-modal-id="modal1";
+    width: 60px;
+    height: 60px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal {
-  /* ... */
-  transition: opacity 0.3s ease-in-out;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
 }
 
 .modal-contenido {
-  /* ... */
-  transition: transform 0.3s ease-in-out;
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
 }
 
 .cerrar {
-  /* ... */
-  cursor: pointer;
+    color: #ee0000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 #descargar-pdf {
-  /* ... */
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
 }
+@media (max-width: 768px) {
+    /* Estilos para pantallas más pequeñas */
+    .elemento {
+      width: 20%; /* Ajustar el ancho de los elementos */
+    table {
+      width: 100%;
+      overflow-x: scroll;
+    }
+  }
+    td {
+      font-size: 12px;
+    }
+  }
