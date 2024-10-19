@@ -12,9 +12,21 @@
         <div class="periodic-table">
             <!-- Los elementos se agregarán dinámicamente con JavaScript -->
         </div>
+        <div class="special-groups">
+            <div class="lanthanides"></div>
+            <div class="actinides"></div>
+        </div>
         <button id="downloadPdf">Descargar PDF</button>
     </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="elementName"></h2>
+            <p id="elementDetails"></p>
+        </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
