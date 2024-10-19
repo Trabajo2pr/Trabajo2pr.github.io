@@ -1,76 +1,32 @@
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  zoom: 1; /* Evita el zoom del usuario */
 }
 
 #tabla-periodica, #lantanidos-actinidos {
-    display: grid;
-    grid-template-columns: repeat(18, 1fr);
-    gap: 2px;
-    margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Ajusta el tamaño mínimo de las celdas */
+  gap: 10px;
+  margin-bottom: 20px;
+  width: 100%; /* Asegúrate de que la tabla ocupe todo el ancho disponible */
 }
 
 .elemento {
-    width: 60px;
-    height: 60px;
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  /* ... otros estilos ... */
+  box-sizing: border-box; /* Incluye el padding y border en el ancho y alto */
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-contenido {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 400px;
-}
-
-.cerrar {
-    color: #ee0000;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-#descargar-pdf {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: rgb(0, 0, 0);
-    border: none;
-    cursor: pointer;
-}
 @media (max-width: 768px) {
-    /* Estilos para pantallas más pequeñas */
-    table {
-      width: 100%;
-      overflow-x: scroll;
-    }
-    td {
-      font-size: 12px;
-    }
+  /* Estilos para pantallas más pequeñas */
+  #tabla-periodica, #lantanidos-actinidos {
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
   }
+  .elemento {
+    width: 40px;
+    height: 40px;
+  }
+}
