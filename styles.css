@@ -104,3 +104,13 @@ body {
     text-align: center; /* Centra el texto del botón */
     margin: 20px auto; /* Centra el botón horizontalmente */
   }
+/* Para pantallas más pequeñas */
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+    font-size: 0.8em;
+  }
+  table th, table td {
+    padding: 5px;
+  }
+}
