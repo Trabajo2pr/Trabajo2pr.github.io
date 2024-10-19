@@ -64,3 +64,9 @@ body {
     border: none;
     cursor: pointer;
 }
+@media (max-width: 768px) {
+    /* Estilos para pantallas más pequeñas */
+    .elemento {
+      width: 20%; /* Ajustar el ancho de los elementos */
+    }
+  }
