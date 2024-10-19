@@ -1,7 +1,7 @@
 const elements = [
     { symbol: 'H', name: 'Hidrógeno', number: 1, mass: 1.008, group: 1, period: 1, family: 'no-metal', discovery: 1766 },
     { symbol: 'He', name: 'Helio', number: 2, mass: 4.003, group: 18, period: 1, family: 'gas-noble', discovery: 1895 },
-    { symbol: 'Li', name: 'Litio', number: 3, mass: 6.941, group: 1, period:2, family: 'metal-alcalino'},
+    { symbol: 'Li', name: 'Litio', number: 3, mass: 6.941, group: 1, period:2, family: 'metal-alcalino'  discovery: 1},
     // ... Agregar el resto de los elementos aquí, incluyendo lantánidos y actínidos con sus fechas de descubrimiento
 ];
 
