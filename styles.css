@@ -87,7 +87,6 @@ button:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* This line was added */
     background-color: rgba(0,0,0,0.4);
 }
 
@@ -96,7 +95,7 @@ button:hover {
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* This line was updated */
+    width: 90%;
     max-width: 500px;
 }
 
