@@ -18,7 +18,7 @@ h1 {
 
 .periodic-table {
     display: grid;
-    grid-template-columns: repeat(18, minmax(40px, 1fr));
+    grid-template-columns: repeat(18, minmax(30px, 1fr));
     gap: 2px;
     margin-bottom: 10px;
 }
@@ -30,7 +30,7 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 10px;
+    font-size: 8px;
     cursor: pointer;
     transition: transform 0.2s;
     padding: 2px;
@@ -43,11 +43,11 @@ h1 {
 
 .element .symbol {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .element .number {
-    font-size: 8px;
+    font-size: 6px;
 }
 
 .special-groups {
@@ -59,7 +59,7 @@ h1 {
 
 .lanthanides, .actinides {
     display: grid;
-    grid-template-columns: repeat(15, minmax(40px, 1fr));
+    grid-template-columns: repeat(15, minmax(30px, 1fr));
     gap: 2px;
 }
 
@@ -129,28 +129,6 @@ button:hover {
 
 @media (max-width: 768px) {
     .periodic-table {
-        grid-template-columns: repeat(18, minmax(30px, 1fr));
-    }
-
-    .lanthanides, .actinides {
-        grid-template-columns: repeat(15, minmax(30px, 1fr));
-    }
-
-    .element {
-        font-size: 8px;
-    }
-
-    .element .symbol {
-        font-size: 12px;
-    }
-
-    .element .number {
-        font-size: 6px;
-    }
-}
-
-@media (max-width: 480px) {
-    .periodic-table {
         grid-template-columns: repeat(18, minmax(20px, 1fr));
     }
 
@@ -168,5 +146,27 @@ button:hover {
 
     .element .number {
         font-size: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .periodic-table {
+        grid-template-columns: repeat(18, minmax(15px, 1fr));
+    }
+
+    .lanthanides, .actinides {
+        grid-template-columns: repeat(15, minmax(15px, 1fr));
+    }
+
+    .element {
+        font-size: 4px;
+    }
+
+    .element .symbol {
+        font-size: 8px;
+    }
+
+    .element .number {
+        font-size: 3px;
     }
 }
