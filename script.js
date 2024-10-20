@@ -1,8 +1,6 @@
 const elements = [
     { symbol: 'H', name: 'Hidrógeno', number: 1, mass: 1.008, group: 1, period: 1, family: 'no-metal', discovery: 1766 },
     { symbol: 'He', name: 'Helio', number: 2, mass: 4.003, group: 18, period: 1, family: 'gas-noble', discovery: 1895 },
-    { symbol: 'H', name: 'Hidrógeno', number: 1, mass: 1.008, group: 1, period: 1, family: 'no-metal', discovery: 1766 },
-    { symbol: 'He', name: 'Helio', number: 2, mass: 4.003, group: 18, period: 1, family: 'gas-noble', discovery: 1895 },
     { symbol: 'Li', name: 'Litio', number: 3, mass: 6.941, group: 1, period: 2, family: 'metal-alcalino', discovery: 1817},
     { symbol: 'Be', name: 'Berilio', number: 4, mass: 9.012182, group: 2, period: 2, family: 'metal-alcalinoterreo', discovery: 1798},
     { symbol: 'B', name: 'Boro', number: 5, mass: 10.811, group: 13, period: 2, family: 'metaloide', discovery: 1808},
@@ -44,19 +42,19 @@ const elements = [
     { symbol: 'Nb', name: 'Niobio', number: 41, mass: 92.90638, group: 5, period: 5, family: 'metal-de-transicion', discovery: 1801},
     { symbol: 'Mo', name: 'Molibdeno', number: 42, mass: 95.96, group: 6, period: 5, family: 'metal-de-transicion', discovery: 1778},
     { symbol: 'Tc', name: 'Tecnecio', number: 43, mass: 98, group: 7, period: 5, family: 'metal-de-transicion', discovery: 1937},
-    { symbol: 'Ru', name: 'Rutenio', number: 44, mass: 101.07, group: 8, period: 6, family: 'metal-de-transicion', discovery: 1808},
-    { symbol: 'Rh', name: 'Rodio', number: 45, mass: 102.9055, group: 9, period: 6, family: 'metal-de-transicion', discovery: 1803},
-    { symbol: 'Pd', name:  'Paladio', number: 46, mass: 106.42, group: 10, period: 6, family: 'metal-de-transicion', discovery: 1803},
-    { symbol: 'Ag', name: 'Plata', number: 47, mass: 107.8682, group: 11, period: 6, family: 'metal-de-transicion', discovery: -3000},
-    { symbol: 'Cd', name: 'Cadmio', number: 48, mass: 112.441, group: 12, period: 6, family: 'metal-de-transicion', discovery: 1817},
-    { symbol: 'In', name: 'Indio', number: 49, mass: 114.818, group: 13, period: 6, family: 'otro-metal', discovery: 1863},
-    { symbol: 'Sn', name: 'Estaño', number: 50, mass: 118.719, group: 14, period: 6, family: 'otro-metal', discovery: -6000},
-    { symbol: 'Sb', name: 'Antimonio', number: 51, mass: 121.760, group: 15, period: 6, family: 'metaloide', discovery: -1600},
-    { symbol: 'Te', name: 'Telurio', number: 52, mass: 127.60, group: 16, period: 6, family: 'metaloide', discovery: 1782}, 
-    { symbol: 'I', name: 'Yodo', number: 53, mass: 126.9044, group: 17, period: 6, family: 'halogeno', discovery: 1811},
-    { symbol: 'Xe', name: 'Xenón', number: 54, mass: 131.293, group: 18, period: 6, family: 'gas-noble', discovery: 1898},
-    { symbol: 'Cs', name: 'Cesio', number: 55, mass: 132.9054, group: 1, period: 7, family: 'metal-alcalino', discovery: 1860},
-    { symbol: 'Ba', name: 'Bario', number: 56, mass: 137.327, group: 2, period: 7, family: 'metal-alcalinoterreo', discovery: 1808},
+    { symbol: 'Ru', name: 'Rutenio', number: 44, mass: 101.07, group: 8, period: 5, family: 'metal-de-transicion', discovery: 1808},
+    { symbol: 'Rh', name: 'Rodio', number: 45, mass: 102.9055, group: 9, period: 5, family: 'metal-de-transicion', discovery: 1803},
+    { symbol: 'Pd', name:  'Paladio', number: 46, mass: 106.42, group: 10, period: 5, family: 'metal-de-transicion', discovery: 1803},
+    { symbol: 'Ag', name: 'Plata', number: 47, mass: 107.8682, group: 11, period: 5, family: 'metal-de-transicion', discovery: -3000},
+    { symbol: 'Cd', name: 'Cadmio', number: 48, mass: 112.441, group: 12, period: 5, family: 'metal-de-transicion', discovery: 1817},
+    { symbol: 'In', name: 'Indio', number: 49, mass: 114.818, group: 13, period: 5, family: 'otro-metal', discovery: 1863},
+    { symbol: 'Sn', name: 'Estaño', number: 50, mass: 118.719, group: 14, period: 5, family: 'otro-metal', discovery: -6000},
+    { symbol: 'Sb', name: 'Antimonio', number: 51, mass: 121.760, group: 15, period: 5, family: 'metaloide', discovery: -1600},
+    { symbol: 'Te', name: 'Telurio', number: 52, mass: 127.60, group: 16, period: 5, family: 'metaloide', discovery: 1782}, 
+    { symbol: 'I', name: 'Yodo', number: 53, mass: 126.9044, group: 17, period: 5, family: 'halogeno', discovery: 1811},
+    { symbol: 'Xe', name: 'Xenón', number: 54, mass: 131.293, group: 18, period: 5, family: 'gas-noble', discovery: 1898},
+    { symbol: 'Cs', name: 'Cesio', number: 55, mass: 132.9054, group: 1, period: 6, family: 'metal-alcalino', discovery: 1860},
+    { symbol: 'Ba', name: 'Bario', number: 56, mass: 137.327, group: 2, period: 6, family: 'metal-alcalinoterreo', discovery: 1808},
     { symbol: 'La', name: 'Lanrano', number: 57, mass: 138.9054, group:'n/a', period: 'n/a', family: 'lantanido', discovery: 1839},
     { symbol: 'Ce', name: 'Cerio', number: 58, mass: 140.116, group: 'N/a', period: 'n/a', family: 'lantanido', discovery: 1839},
     { symbol: 'Pr', name: 'Praseodimio', number: 59, mass:140.9076, group: 'n/a', period: 'n/a', family: 'lantanido', discovery: 1885},
@@ -120,8 +118,7 @@ const elements = [
     { symbol: 'Ts', name: 'Teneso', number: 117, mass: 294, group: 17, period:7 , family: 'halogeno', discovery: 2010},
     { symbol: 'Og', name: 'Oganesson', number: 118, mass: 294, group: 18, period: 7, family: 'gas-noble', discovery: 2002},
     // Ejemplo de elemento con fecha a.C.
-    { symbol: 'Au', name: 'Oro', number: 79, mass: 196.967, group: 11, period: 6, family: 'metal-de-transicion', discovery: -3000 },
-    // ... Agregar el resto de los elementos aquí, incluyendo lantánidos y actínidos
+
 ];
 
 function createPeriodicTable() {
@@ -130,11 +127,12 @@ function createPeriodicTable() {
     const actinides = document.querySelector('.actinides');
     
     elements.forEach(element => {
+        const  symbol= element?.symbol || element?.Symbol;
         const elementDiv = document.createElement('div');
         elementDiv.className = `element ${element.family}`;
         elementDiv.innerHTML = `
             <span class="number">${element.number}</span>
-            <span class="symbol">${element.symbol}</span>
+            <span class="symbol">${symbol}</span>
         `;
         elementDiv.addEventListener('click', () => showElementDetails(element));
         
