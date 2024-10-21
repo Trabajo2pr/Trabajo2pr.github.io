@@ -74,7 +74,7 @@ const elements = [
     { symbol: 'Ta', name: 'Tántalo', number: 73, mass: 180.9478, group: 5, period: 6, family: 'metal-de-transicion', discovery: 1864},
     { symbol: 'W', name: 'Wolframio', number: 74, mass: 183.84, group: 6, period: 6, family: 'metal-de-transicion', discovery: 1783},
     { symbol: 'Re', name: 'Renio', number: 75, mass: 186.297, group: 7, period: 6, family: 'metal-de-transicion', discovery: 1925},
-    { symbol: 'Os', name: 'Osmio', number: 76, mass: 190.23, group: 8, period: 6, family: 'metalede-transicion', discovery: 1803},
+    { symbol: 'Os', name: 'Osmio', number: 76, mass: 190.23, group: 8, period: 6, family: 'metal-de-transicion', discovery: 1803},
     { symbol: 'Ir', name: 'Iridio', number: 77, mass: 192.217, group: 9, period: 6, family: 'metal-de-transicion', discovery: 1803},
     { symbol: 'Pt', name: 'Platino', number: 78, mass: 195.084, group: 10, period: 6, family: 'metal-de-transicion', discovery: 1735},
     { symbol: 'Au', name: 'Oro', number: 79, mass: 196.967, group: 11, period: 6, family: 'metal-de-transicion', discovery: -3000 },
@@ -86,7 +86,7 @@ const elements = [
     { symbol: 'At', name: 'Astato', number: 85, mass: 210, group: 17, period: 6, family: 'halogeno', discovery: 1940},
     { symbol: 'Rn', name: 'Radón', number: 86, mass: 220, group: 18, period: 6, family: 'gas-noble', discovery: 1910},
     { symbol: 'Fr', name: 'Francio', number: 87, mass: 223, group: 1, period: 7, family: 'metal-alcalino', discovery: 1939},
-    { symbol: 'Ra', name: 'Radio', number: 88, mass: 226, group: 2, period: 7, family: 'alcalinoterreo', discovery: 1902},
+    { symbol: 'Ra', name: 'Radio', number: 88, mass: 226, group: 2, period: 7, family: 'metal-alcalinoterreo', discovery: 1902},
     { symbol: 'Ac', name: 'Actinio', number: 89, mass: 227, group: 'n/a', period: 'n/a', family: 'actinido', discovery: 1899},
     { symbol: 'Th', name: 'Torio', number: 90, mass: 232.0380, group: 'n/a', period: 'n/a', family: 'actinido', discovery: 1828},
     { symbol: 'Pa', name: 'Protactinio', number: 91, mass: 231.0358, group: 'n/a', period: 'n/a', family: 'actinido', discovery: 1913},
@@ -237,4 +237,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     downloadBtn.addEventListener('click', downloadPDF);
+    function createPeriodicTable() {
+    const table = document.querySelector('.periodic-table');
+    const lanthanides = document.querySelector('.lanthanides');
+    const actinides = document.querySelector('.actinides');
+    
+    elements.forEach(element => {
+        const symbol = element?.symbol || element?.Symbol;
+        const elementDiv = document.createElement('div');
+        elementDiv.className = `element ${element.family}`;
+        elementDiv.innerHTML = `
+            <span class="number">${element.number}</span>
+            <span class="symbol">${symbol}</span>
+        `;
+        elementDiv.addEventListener('click', () => showElementDetails(element));
+        
+        if (element.number >= 57 && element.number <= 71) {
+            elementDiv.style.gridColumn = element.number - 56; // Ajustado para lantánidos
+            elementDiv.style.gridRow = 1;
+            lanthanides.appendChild(elementDiv);
+        } else if (element.number >= 89 && element.number <= 103) {
+            elementDiv.style.gridColumn = element.number - 88; // Ajustado para actínidos
+            elementDiv.style.gridRow = 1;
+            actinides.appendChild(elementDiv);
+        } else {
+            if (element.group !== 'n/a' && element.period !== 'n/a') {
+                elementDiv.style.gridColumn = element.group;
+                elementDiv.style.gridRow = element.period;
+                table.appendChild(elementDiv);
+            }
+        }
+    });
+}
 });
