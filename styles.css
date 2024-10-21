@@ -53,8 +53,8 @@ h1 {
 .special-groups {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    margin-top: 10px;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 .lanthanides, .actinides {
@@ -63,11 +63,20 @@ h1 {
     gap: 2px;
 }
 
+.group-label {
+    grid-column: 1 / span 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 12px;
+}
+
 button {
     display: block;
-    margin: 10px auto;
-    padding: 8px 16px;
-    font-size: 14px;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -128,15 +137,11 @@ button:hover {
 .actinido { background-color: #ff99cc; }
 
 @media (max-width: 768px) {
-    .periodic-table {
+    .periodic-table, .lanthanides, .actinides {
         grid-template-columns: repeat(18, minmax(20px, 1fr));
     }
 
-    .lanthanides, .actinides {
-        grid-template-columns: repeat(15, minmax(20px, 1fr));
-    }
-
-    .element {
+    .element, .group-label {
         font-size: 6px;
     }
 
@@ -150,15 +155,11 @@ button:hover {
 }
 
 @media (max-width: 480px) {
-    .periodic-table {
+    .periodic-table, .lanthanides, .actinides {
         grid-template-columns: repeat(18, minmax(15px, 1fr));
     }
 
-    .lanthanides, .actinides {
-        grid-template-columns: repeat(15, minmax(15px, 1fr));
-    }
-
-    .element {
+    .element, .group-label {
         font-size: 4px;
     }
 
