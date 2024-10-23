@@ -60,29 +60,6 @@ h1 {
 
 @media (max-width: 768px) {
     .periodic-table {
-        grid-template-columns: repeat(18, minmax(30px, 1fr));
-        grid-template-rows: repeat(7, minmax(30px, 1fr));
-    }
-
-    .lanthanides, .actinides {
-        grid-template-columns: repeat(15, minmax(30px, 1fr));
-    }
-
-    .element {
-        font-size: 8px;
-    }
-
-    .element .symbol {
-        font-size: 12px;
-    }
-
-    .element .number {
-        font-size: 6px;
-    }
-}
-
-@media (max-width: 480px) {
-    .periodic-table {
         grid-template-columns: repeat(18, minmax(20px, 1fr));
         grid-template-rows: repeat(7, minmax(20px, 1fr));
     }
@@ -102,12 +79,41 @@ h1 {
     .element .number {
         font-size: 4px;
     }
+
+    .special-groups {
+        margin-top: 10px;
+    }
+
+    .group-label {
+        font-size: 8px;
+    }
 }
 
-.special-groups {
-    display: block;
-    margin-top: 20px;
-    page-break-inside: avoid;
+@media (max-width: 480px) {
+    .periodic-table {
+        grid-template-columns: repeat(18, minmax(15px, 1fr));
+        grid-template-rows: repeat(7, minmax(15px, 1fr));
+    }
+
+    .lanthanides, .actinides {
+        grid-template-columns: repeat(15, minmax(15px, 1fr));
+    }
+
+    .element {
+        font-size: 4px;
+    }
+
+    .element .symbol {
+        font-size: 8px;
+    }
+
+    .element .number {
+        font-size: 3px;
+    }
+
+    .group-label {
+        font-size: 6px;
+    }
 }
 
 @media print {
@@ -122,11 +128,13 @@ h1 {
         visibility: visible !important;
         position: static !important;
         page-break-inside: avoid;
+        width: 100% !important;
     }
 
     .lanthanides, .actinides {
         display: grid !important;
         visibility: visible !important;
+        width: 100% !important;
     }
 }
 
