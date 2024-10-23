@@ -208,7 +208,6 @@ function downloadPDF() {
         alert('Hubo un error al generar el PDF. Por favor, inténtalo de nuevo.');
     });
 }
-
 function showElementDetails(element) {
     const modal = document.getElementById('modal');
     const elementName = document.getElementById('elementName');
