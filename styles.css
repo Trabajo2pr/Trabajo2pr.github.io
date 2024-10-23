@@ -55,8 +55,8 @@ h1 {
     display: grid;
     grid-template-columns: repeat(15, minmax(40px, 1fr));
     gap: 2px;
-    margin-left: 8.33%; /* Aproximadamente 2 columnas de espacio */
-    width: 91.67%; /* 15/18 del ancho total */
+    margin-left: 8.33%;
+    width: 91.67%;
     margin-bottom: 10px;
 }
 
@@ -78,15 +78,22 @@ h1 {
     margin-bottom: 5px;
 }
 
-@media (max-width: 768px) {
-    .periodic-table {
-        grid-template-columns: repeat(18, minmax(20px, 1fr));
-        grid-template-rows: repeat(7, minmax(20px, 1fr));
+@media print, screen {
+    .special-groups {
+        display: flex !important;
+        visibility: visible !important;
+        position: static !important;
+        page-break-inside: avoid;
+        width: 100% !important;
     }
 
     .lanthanides, .actinides {
-        grid-template-columns: repeat(15, minmax(20px, 1fr));
+        display: grid !important;
+        visibility: visible !important;
+        width: 91.67% !important;
+        margin-left: 8.33% !important;
     }
+}
 
     .element {
         font-size: 6px;
@@ -107,7 +114,7 @@ h1 {
     .group-label {
         font-size: 8px;
     }
-}
+
 
 @media (max-width: 480px) {
     .periodic-table {
