@@ -18,7 +18,8 @@ h1 {
 
 .periodic-table {
     display: grid;
-    grid-template-columns: repeat(18, minmax(30px, 1fr));
+    grid-template-columns: repeat(18, minmax(40px, 1fr));
+    grid-template-rows: repeat(7, minmax(40px, 1fr));
     gap: 2px;
     margin-bottom: 10px;
 }
@@ -34,11 +35,8 @@ h1 {
     cursor: pointer;
     transition: transform 0.2s;
     padding: 2px;
-}
-
-.element:hover {
-    transform: scale(1.1);
-    z-index: 1;
+    position: relative;
+    overflow: hidden;
 }
 
 .element .symbol {
@@ -47,20 +45,89 @@ h1 {
 }
 
 .element .number {
+    position: absolute;
+    top: 2px;
+    left: 2px;
     font-size: 6px;
-}
-
-.special-groups {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
 }
 
 .lanthanides, .actinides {
     display: grid;
-    grid-template-columns: repeat(15, minmax(30px, 1fr));
+    grid-template-columns: repeat(15, minmax(40px, 1fr));
     gap: 2px;
+    margin-bottom: 10px; /* Updated margin-bottom */
+}
+
+@media (max-width: 768px) {
+    .periodic-table {
+        grid-template-columns: repeat(18, minmax(30px, 1fr));
+        grid-template-rows: repeat(7, minmax(30px, 1fr));
+    }
+
+    .lanthanides, .actinides {
+        grid-template-columns: repeat(15, minmax(30px, 1fr));
+    }
+
+    .element {
+        font-size: 8px;
+    }
+
+    .element .symbol {
+        font-size: 12px;
+    }
+
+    .element .number {
+        font-size: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .periodic-table {
+        grid-template-columns: repeat(18, minmax(20px, 1fr));
+        grid-template-rows: repeat(7, minmax(20px, 1fr));
+    }
+
+    .lanthanides, .actinides {
+        grid-template-columns: repeat(15, minmax(20px, 1fr));
+    }
+
+    .element {
+        font-size: 6px;
+    }
+
+    .element .symbol {
+        font-size: 10px;
+    }
+
+    .element .number {
+        font-size: 4px;
+    }
+}
+
+.special-groups {
+    display: block;
+    margin-top: 20px;
+    page-break-inside: avoid;
+}
+
+@media print {
+    .container {
+        page-break-inside: avoid;
+    }
+}
+
+@media print, screen {
+    .special-groups {
+        display: block !important;
+        visibility: visible !important;
+        position: static !important;
+        page-break-inside: avoid;
+    }
+
+    .lanthanides, .actinides {
+        display: grid !important;
+        visibility: visible !important;
+    }
 }
 
 .group-label {
