@@ -155,15 +155,36 @@ h1 {
         visibility: visible !important;
         position: static !important;
         page-break-inside: avoid;
-        width: 100% !important;
+        width: 100% !important;}
     }
 
     .lanthanides, .actinides {
-        display: grid !important;
-        visibility: visible !important;
-        width: 91.67% !important;
-        margin-left: 8.33% !important;
-    }
+    display: grid;
+    grid-template-columns: repeat(15, minmax(40px, 1fr));
+    gap: 2px;
+    margin-left: 8.33%;
+    width: 91.67%;
+    margin-bottom: 10px;
+    visibility: visible !important;
+}
+
+.lanthanides, .actinides {
+    display: grid;
+    grid-template-columns: repeat(15, minmax(40px, 1fr));
+    gap: 2px;
+    margin-left: 8.33%;
+    width: 91.67%;
+    margin-bottom: 10px;
+    visibility: visible !important;
+}
+
+.special-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+    visibility: visible !important;
 }
 
 .group-label {
@@ -173,6 +194,15 @@ h1 {
     justify-content: center;
     font-weight: bold;
     font-size: 12px;
+    margin-bottom: 5px;
+}
+
+@media print, screen {
+    .special-groups, .lanthanides, .actinides {
+        display: flex !important;
+        visibility: visible !important;
+        position: static !important;
+    }
 }
 
 button {
