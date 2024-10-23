@@ -152,6 +152,10 @@ function createPeriodicTable() {
             }
         }
     });
+
+    // Asegurarse de que los contenedores de lantánidos y actínidos sean visibles
+    lanthanides.style.display = 'grid';
+    actinides.style.display = 'grid';
 }
 
 function downloadPDF() {
@@ -160,14 +164,20 @@ function downloadPDF() {
     // Asegurarse de que todo el contenido sea visible
     const container = document.querySelector('.container');
     const specialGroups = document.querySelector('.special-groups');
+    const lanthanides = document.querySelector('.lanthanides');
+    const actinides = document.querySelector('.actinides');
     
     // Guardar estilos originales
     const originalContainerStyle = container.style.cssText;
     const originalSpecialGroupsStyle = specialGroups.style.cssText;
+    const originalLanthanidesStyle = lanthanides.style.cssText;
+    const originalActinidesStyle = actinides.style.cssText;
     
     // Ajustar estilos para la captura
     container.style.cssText += 'height: auto; overflow: visible; display: inline-block; width: 100%;';
-    specialGroups.style.cssText += 'position: static; visibility: visible; display: block; width: 100%;';
+    specialGroups.style.cssText += 'position: static; visibility: visible; display: flex; width: 100%;';
+    lanthanides.style.cssText += 'display: grid; visibility: visible;';
+    actinides.style.cssText += 'display: grid; visibility: visible;';
     
     // Forzar un reflow
     container.offsetHeight;
@@ -182,8 +192,12 @@ function downloadPDF() {
         onclone: function(clonedDoc) {
             const clonedContainer = clonedDoc.querySelector('.container');
             const clonedSpecialGroups = clonedDoc.querySelector('.special-groups');
+            const clonedLanthanides = clonedDoc.querySelector('.lanthanides');
+            const clonedActinides = clonedDoc.querySelector('.actinides');
             clonedContainer.style.cssText += 'height: auto; overflow: visible; display: inline-block; width: 100%;';
-            clonedSpecialGroups.style.cssText += 'position: static; visibility: visible; display: block; width: 100%;';
+            clonedSpecialGroups.style.cssText += 'position: static; visibility: visible; display: flex; width: 100%;';
+            clonedLanthanides.style.cssText += 'display: grid; visibility: visible;';
+            clonedActinides.style.cssText += 'display: grid; visibility: visible;';
         }
     }).then(canvas => {
         const imgData = canvas.toDataURL('image/png');
@@ -203,6 +217,8 @@ function downloadPDF() {
         // Restaurar estilos originales
         container.style.cssText = originalContainerStyle;
         specialGroups.style.cssText = originalSpecialGroupsStyle;
+        lanthanides.style.cssText = originalLanthanidesStyle;
+        actinides.style.cssText = originalActinidesStyle;
     }).catch(error => {
         console.error('Error al generar el PDF:', error);
         alert('Hubo un error al generar el PDF. Por favor, inténtalo de nuevo.');
