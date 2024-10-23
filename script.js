@@ -157,6 +157,44 @@ function createPeriodicTable() {
 function downloadPDF() {
     const { jsPDF } = window.jspdf;
     
+    // Asegurarse de que todo el contenido sea visible
+    const container = document.querySelector('.container');
+    const originalHeight = container.style.height;
+    container.style.height = 'auto';
+    
+    html2canvas(container, {
+        scale: 2,
+        logging: true,
+        allowTaint: true,
+        useCORS: true,
+        onclone: function(clonedDoc) {
+            const clonedContainer = clonedDoc.querySelector('.container');
+            clonedContainer.style.transform = 'scale(1)';
+            clonedContainer.style.height = 'auto';
+        }
+    }).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF({
+            orientation: 'landscape',
+            unit: 'mm',
+            format: 'a3'
+        });
+        
+        const imgProps = pdf.getImageProperties(imgData);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save("tabla_periodica_completa.pdf");
+        
+        // Restaurar la altura original del contenedor
+        container.style.height = originalHeight;
+    });
+}
+
+function downloadPDF() {
+    const { jsPDF } = window.jspdf;
+    
     // Capturar toda la tabla periódica, incluyendo lantánidos y actínidos
     html2canvas(document.querySelector('.container'), {
         scale: 2,
