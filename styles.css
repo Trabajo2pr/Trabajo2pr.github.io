@@ -55,7 +55,27 @@ h1 {
     display: grid;
     grid-template-columns: repeat(15, minmax(40px, 1fr));
     gap: 2px;
-    margin-bottom: 10px; /* Updated margin-bottom */
+    margin-left: 8.33%; /* Aproximadamente 2 columnas de espacio */
+    width: 91.67%; /* 15/18 del ancho total */
+    margin-bottom: 10px;
+}
+
+.special-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.group-label {
+    grid-column: 1 / span 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 5px;
 }
 
 @media (max-width: 768px) {
@@ -124,7 +144,7 @@ h1 {
 
 @media print, screen {
     .special-groups {
-        display: block !important;
+        display: flex !important;
         visibility: visible !important;
         position: static !important;
         page-break-inside: avoid;
@@ -134,7 +154,8 @@ h1 {
     .lanthanides, .actinides {
         display: grid !important;
         visibility: visible !important;
-        width: 100% !important;
+        width: 91.67% !important;
+        margin-left: 8.33% !important;
     }
 }
 
