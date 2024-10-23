@@ -166,26 +166,31 @@ function downloadPDF() {
     const originalSpecialGroupsStyle = specialGroups.style.cssText;
     
     // Ajustar estilos para la captura
-    container.style.cssText = 'height: auto; overflow: visible; display: inline-block;';
-    specialGroups.style.cssText = 'position: static; visibility: visible; display: block;';
+    container.style.cssText += 'height: auto; overflow: visible; display: inline-block; width: 100%;';
+    specialGroups.style.cssText += 'position: static; visibility: visible; display: block; width: 100%;';
+    
+    // Forzar un reflow
+    container.offsetHeight;
+
+    const scale = window.innerWidth <= 768 ? 1 : 2;
     
     html2canvas(container, {
-        scale: 2,
+        scale: scale,
         logging: true,
         allowTaint: true,
         useCORS: true,
         onclone: function(clonedDoc) {
             const clonedContainer = clonedDoc.querySelector('.container');
             const clonedSpecialGroups = clonedDoc.querySelector('.special-groups');
-            clonedContainer.style.cssText = 'height: auto; overflow: visible; display: inline-block;';
-            clonedSpecialGroups.style.cssText = 'position: static; visibility: visible; display: block;';
+            clonedContainer.style.cssText += 'height: auto; overflow: visible; display: inline-block; width: 100%;';
+            clonedSpecialGroups.style.cssText += 'position: static; visibility: visible; display: block; width: 100%;';
         }
     }).then(canvas => {
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF({
             orientation: 'landscape',
             unit: 'mm',
-            format: 'a3'
+            format: window.innerWidth <= 768 ? 'a4' : 'a3'
         });
         
         const imgProps = pdf.getImageProperties(imgData);
@@ -198,6 +203,9 @@ function downloadPDF() {
         // Restaurar estilos originales
         container.style.cssText = originalContainerStyle;
         specialGroups.style.cssText = originalSpecialGroupsStyle;
+    }).catch(error => {
+        console.error('Error al generar el PDF:', error);
+        alert('Hubo un error al generar el PDF. Por favor, inténtalo de nuevo.');
     });
 }
 
