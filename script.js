@@ -11,7 +11,7 @@ const elements = [
     { symbol: 'Ne', name: 'Neón', number: 10, mass: 20.1797, group: 18, period: 2, family: 'gas-noble', discovery: 1898},
     { symbol: 'Na', name: 'Sodio', number : 11, mass: 22.98976, group: 1, period: 3, family: 'metal-alcalino', discovery: 1807},
     { symbol: 'Mg', name: 'Magnesio', number: 12, mass: 24.3050, group: 2, period: 3, family: 'metal-alcalinoterreo', discovery: 1801},
-    { symbol: 'Al', name: 'Aluminio', number: 13, mass: 26.98153, group: 13, period: 3, family: 'Otro metal', discovery: 1825},
+    { symbol: 'Al', name: 'Aluminio', number: 13, mass: 26.98153, group: 13, period: 3, family: 'Otro-metal', discovery: 1825},
     { symbol: 'Si', name: 'Silicio', number: 14, mass: 28.0855, group: 14, period: 3, family: 'metaloide', discovery: 1824},
     { symbol: 'P', name: 'Fósforo', number: 15, mass: 30.97696, group: 15, period: 3, family: 'no-metal', discovery: 1669},
     { symbol: 'S', name: 'Azufre', number: 16, mass: 32.065, group: 16, period: 3, family: 'no-metal', discovery: 1770},
@@ -29,8 +29,8 @@ const elements = [
     { symbol: 'Ni', name: 'Niquel', number: 28, mass: 58.93319, group: 10, period: 4, family: 'metal-de-transicion', discovery: 1751},
     { symbol: 'Cu', name: 'Cobre', number: 29, mass: 63.564, group: 11, period: 4, family: 'metal-de-transicion', discovery: -9000},
     { symbol: 'Zn', name: 'Zinc', number: 30, mass: 65.38, group: 12, period: 4, family: 'metal-de-transicion', discovery: 1526},
-    { symbol: 'Ga', name: 'Galio', number: 31, mass: 69.723, group: 13, period: 4, family: 'Otro metal', discovery: 1875}, 
-    { symbol: 'Ge', name: 'Germanio', number: 32, mass: 72.64, group: 14, period: 4, family: 'mataloide', discovery: 1886},
+    { symbol: 'Ga', name: 'Galio', number: 31, mass: 69.723, group: 13, period: 4, family: 'Otro-metal', discovery: 1875}, 
+    { symbol: 'Ge', name: 'Germanio', number: 32, mass: 72.64, group: 14, period: 4, family: 'metaloide', discovery: 1886},
     { symbol: 'As', name: 'Arsénico', number: 33, mass: 74.92160, group: 15, period: 4, family: 'metaloide', discovery: 1649},
     { symbol: 'Se', name: 'Selenio', number: 34, mass: 78.96, group: 16, period: 4, family: 'no-metal', discovery: 1817},
     { symbol: 'Br', name: 'Bromo', number: 35, mass: 79.904, group: 17, period: 4, family: 'halogeno', discovery: 1826},
@@ -47,8 +47,8 @@ const elements = [
     { symbol: 'Pd', name:  'Paladio', number: 46, mass: 106.42, group: 10, period: 5, family: 'metal-de-transicion', discovery: 1803},
     { symbol: 'Ag', name: 'Plata', number: 47, mass: 107.8682, group: 11, period: 5, family: 'metal-de-transicion', discovery: -3000},
     { symbol: 'Cd', name: 'Cadmio', number: 48, mass: 112.441, group: 12, period: 5, family: 'metal-de-transicion', discovery: 1817},
-    { symbol: 'In', name: 'Indio', number: 49, mass: 114.818, group: 13, period: 5, family: 'otro-metal', discovery: 1863},
-    { symbol: 'Sn', name: 'Estaño', number: 50, mass: 118.719, group: 14, period: 5, family: 'otro-metal', discovery: -6000},
+    { symbol: 'In', name: 'Indio', number: 49, mass: 114.818, group: 13, period: 5, family: 'Otro-metal', discovery: 1863},
+    { symbol: 'Sn', name: 'Estaño', number: 50, mass: 118.719, group: 14, period: 5, family: 'Otro-metal', discovery: -6000},
     { symbol: 'Sb', name: 'Antimonio', number: 51, mass: 121.760, group: 15, period: 5, family: 'metaloide', discovery: -1600},
     { symbol: 'Te', name: 'Telurio', number: 52, mass: 127.60, group: 16, period: 5, family: 'metaloide', discovery: 1782}, 
     { symbol: 'I', name: 'Yodo', number: 53, mass: 126.9044, group: 17, period: 5, family: 'halogeno', discovery: 1811},
@@ -79,9 +79,9 @@ const elements = [
     { symbol: 'Pt', name: 'Platino', number: 78, mass: 195.084, group: 10, period: 6, family: 'metal-de-transicion', discovery: 1735},
     { symbol: 'Au', name: 'Oro', number: 79, mass: 196.967, group: 11, period: 6, family: 'metal-de-transicion', discovery: -3000 },
     { symbol: 'Hg', name: 'Mercurio', number: 80, mass: 200.59, group: 12, period: 6, family: 'metal-de-transicion', discovery: -1500},
-    { symbol: 'Ti', name: 'Talio', number: 81, mass: 204.3833, group: 13, period: 6, family: 'Otro metal', discovery: 1861},
-    { symbol: 'Pb', name: 'Plomo', number: 82, mass: 207.2, group: 14, period: 6, family: 'Otro metal', discovery: -7000},
-    { symbol: 'Bi', name: 'Bismuto', number: 83, mass: 208.9804, group: 15, period: 6, family: 'Otro metal', discovery: 1753},
+    { symbol: 'Ti', name: 'Talio', number: 81, mass: 204.3833, group: 13, period: 6, family: 'Otro-metal', discovery: 1861},
+    { symbol: 'Pb', name: 'Plomo', number: 82, mass: 207.2, group: 14, period: 6, family: 'Otro-metal', discovery: -7000},
+    { symbol: 'Bi', name: 'Bismuto', number: 83, mass: 208.9804, group: 15, period: 6, family: 'Otro-metal', discovery: 1753},
     { symbol: 'Po', name: 'Polonio', number: 84, mass: 210, group: 16, period: 6, family: 'metaloide', discovery: 1898},
     { symbol: 'At', name: 'Astato', number: 85, mass: 210, group: 17, period: 6, family: 'halogeno', discovery: 1940},
     { symbol: 'Rn', name: 'Radón', number: 86, mass: 220, group: 18, period: 6, family: 'gas-noble', discovery: 1910},
@@ -111,10 +111,10 @@ const elements = [
     { Symbol: 'Ds', name: 'Darmstadio', number: 110, mass: 271, group: 10, period: 7, family: 'metal-de-transicion', discovery: 1994},
     { symbol: 'Rg', name: 'Roentgenio', number: 111, mass: 272, group: 11, period: 7, family: 'metal-de-transicion', discovery: 1994},
     { symbol: 'Cn', name: 'Copernicio', number: 112, mass: 285, group: 12, period: 7, family: 'metal-de-transicion', discovery: 1996},
-    { symbol: 'Nh', name: 'Nihomio', number: 113, mass: 284, group: 13, period: 7, family: 'Otro metal', discovery: 2003},
-    { symbol: 'Fl', name: 'Flerovio', number: 114, mass: 289, group: 14, period: 7, family: 'Otro metal', discovery: 1999},
-    { symbol: 'Ms', name: 'Moscovio', number: 115, mass: 288, group: 15, period: 7, family: 'Otro metal', discovery: 2003},
-    { symbol: 'Lv', name: 'Livermorio', number: 116, mass: 292, group: 16, period: 7, family: 'Otro metal', discovery: 2000},
+    { symbol: 'Nh', name: 'Nihomio', number: 113, mass: 284, group: 13, period: 7, family: 'Otro-metal', discovery: 2003},
+    { symbol: 'Fl', name: 'Flerovio', number: 114, mass: 289, group: 14, period: 7, family: 'Otro-metal', discovery: 1999},
+    { symbol: 'Ms', name: 'Moscovio', number: 115, mass: 288, group: 15, period: 7, family: 'Otro-metal', discovery: 2003},
+    { symbol: 'Lv', name: 'Livermorio', number: 116, mass: 292, group: 16, period: 7, family: 'Otro-metal', discovery: 2000},
     { symbol: 'Ts', name: 'Teneso', number: 117, mass: 294, group: 17, period:7 , family: 'halogeno', discovery: 2010},
     { symbol: 'Og', name: 'Oganesson', number: 118, mass: 294, group: 18, period: 7, family: 'gas-noble', discovery: 2002},
     // Ejemplo de elemento con fecha a.C.
@@ -127,7 +127,7 @@ function createPeriodicTable() {
     const actinides = document.querySelector('.actinides');
     
     elements.forEach(element => {
-        const  symbol= element?.symbol || element?.Symbol;
+        const symbol = element?.symbol || element?.Symbol;
         const elementDiv = document.createElement('div');
         elementDiv.className = `element ${element.family}`;
         elementDiv.innerHTML = `
@@ -137,23 +137,48 @@ function createPeriodicTable() {
         elementDiv.addEventListener('click', () => showElementDetails(element));
         
         if (element.number >= 57 && element.number <= 71) {
-            elementDiv.style.gridColumn = element.number - 54; // Ajustado para dejar espacio para la etiqueta
+            elementDiv.style.gridColumn = element.number - 56; 
             elementDiv.style.gridRow = 1;
             lanthanides.appendChild(elementDiv);
         } else if (element.number >= 89 && element.number <= 103) {
-            elementDiv.style.gridColumn = element.number - 86; // Ajustado para dejar espacio para la etiqueta
+            elementDiv.style.gridColumn = element.number - 88; 
             elementDiv.style.gridRow = 1;
             actinides.appendChild(elementDiv);
         } else {
-            if (element.group > 3 && element.period >= 6) {
-                elementDiv.style.gridColumn = element.group;
-                elementDiv.style.gridRow = element.period - 1;
-            } else {
+            if (element.group !== 'n/a' && element.period !== 'n/a') {
                 elementDiv.style.gridColumn = element.group;
                 elementDiv.style.gridRow = element.period;
+                table.appendChild(elementDiv);
             }
-            table.appendChild(elementDiv);
         }
+    });
+}
+
+function downloadPDF() {
+    const { jsPDF } = window.jspdf;
+    
+    // Capturar toda la tabla periódica, incluyendo lantánidos y actínidos
+    html2canvas(document.querySelector('.container'), {
+        scale: 2,
+        logging: true,
+        onclone: function (clonedDoc) {
+            clonedDoc.querySelector('.container').style.height = 'auto';
+            clonedDoc.querySelector('.container').style.width = 'auto';
+        }
+    }).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF({
+            orientation: 'landscape',
+            unit: 'mm',
+            format: 'a4'
+        });
+        
+        const imgProps = pdf.getImageProperties(imgData);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save("tabla_periodica_completa.pdf");
     });
 }
 
@@ -186,7 +211,8 @@ function getFamilyName(family) {
         'halogeno': 'Halógeno',
         'gas-noble': 'Gas noble',
         'lantanido': 'Lantánido',
-        'actinido': 'Actínido'
+        'actinido': 'Actínido',
+        'Otro metal': 'Otro metal',
     };
     return families[family] || family;
 }
