@@ -194,10 +194,18 @@ function downloadPDF() {
             const clonedSpecialGroups = clonedDoc.querySelector('.special-groups');
             const clonedLanthanides = clonedDoc.querySelector('.lanthanides');
             const clonedActinides = clonedDoc.querySelector('.actinides');
-            clonedContainer.style.cssText += 'height: auto; overflow: visible; display: inline-block; width: 100%;';
-            clonedSpecialGroups.style.cssText += 'position: static; visibility: visible; display: flex; width: 100%;';
-            clonedLanthanides.style.cssText += 'display: grid; visibility: visible;';
-            clonedActinides.style.cssText += 'display: grid; visibility: visible;';
+            
+            clonedContainer.style.height = 'auto';
+            clonedContainer.style.overflow = 'visible';
+            clonedSpecialGroups.style.display = 'flex';
+            clonedSpecialGroups.style.visibility = 'visible';
+            clonedLanthanides.style.display = 'grid';
+            clonedLanthanides.style.visibility = 'visible';
+            clonedActinides.style.display = 'grid';
+            clonedActinides.style.visibility = 'visible';
+            
+            console.log('Cloned Lantánidos:', clonedLanthanides.children.length);
+            console.log('Cloned Actínidos:', clonedActinides.children.length);
         }
     }).then(canvas => {
         const imgData = canvas.toDataURL('image/png');
