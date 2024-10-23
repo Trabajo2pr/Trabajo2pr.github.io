@@ -135,6 +135,7 @@ button:hover {
 .gas-noble { background-color: #8080ff; }
 .lantanido { background-color: #ffbfff; }
 .actinido { background-color: #ff99cc; }
+.Otro-metal {background-color: #a8dce7;}
 
 @media (max-width: 768px) {
     .periodic-table, .lanthanides, .actinides {
